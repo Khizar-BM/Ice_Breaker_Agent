@@ -15,8 +15,9 @@ def index():
 
 @app.route("/process", methods=["POST"])
 def process():
-    name = request.form["name"]
-    summary, profile_pic_url = ice_break_with(name=name)
+    info = request.form["name"]
+    summary, profile_pic_url = ice_break_with(info)
+    print(profile_pic_url)
     return jsonify(
         {
             "summary_and_facts": summary.to_dict(),
